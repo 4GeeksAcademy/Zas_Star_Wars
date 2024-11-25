@@ -27,16 +27,18 @@ module.exports = {
           }]
         }, //css only files
         {
-          test: /\.(png|svg|jpg|gif|jpeg|webp)$/, use: {
+          test: /\.(png|mp4|svg|jpg|gif|jpeg|webp)$/, use: {
             loader: 'file-loader',
-            options: { name: '[name].[ext]' }
+            options: { name: '[name].[ext]',
+              outputPath: 'vid/'
+             }
           }
         }, //for images
         { test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.svg($|\?)/, use: ['file-loader'] } //for fonts
     ]
   },
   resolve: {
-    extensions: ['*', '.js']
+    extensions: ['*', '.js', '.jsx']
   },
   plugins: [
     new HtmlWebpackPlugin({

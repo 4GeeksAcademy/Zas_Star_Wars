@@ -1,43 +1,156 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+				characters:[],
+				planets: [],
+				vehicles: [],
+				favorites:[],
+
+				character:[],
+				planet:[],
+				vehicle:[],
+
+				loading: false,
+
+				
+
+			
+			
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
+			setLoading: (isLoading)=>{
+				setStore({ loading: isLoading})
+			},
 
-				//reset the global store
-				setStore({ demo: demo });
-			}
+
+			getCharacters: async () =>{
+				const actions = getActions();
+				actions.setLoading(true);
+				try {
+					const response = await fetch("https://www.swapi.tech/api/people")
+					if (!response.ok) throw new Error("Error en la petición de personajes")
+						const data = await response.json()
+				
+					
+					setStore({characters: data.results})
+					
+				} catch (error) {
+					console.log(error.message);
+					
+					
+				}finally{
+					actions.setLoading(false);
+				}
+			},
+
+			getPlanets: async () =>{
+				const actions = getActions();
+				actions.setLoading(true);
+				try {
+					const response = await fetch("https://www.swapi.tech/api/planets")
+					if (!response.ok) throw new Error("Error en la petición de planetas")
+						const data = await response.json()
+					
+					
+					setStore({planets: data.results})
+					
+				} catch (error) {
+					console.log(error.message);
+					
+					
+				}finally{
+					actions.setLoading(false);
+				}
+			},
+
+			getVehicles: async () =>{
+				const actions = getActions();
+				actions.setLoading(true);
+				try {
+					const response = await fetch("https://www.swapi.tech/api/vehicles")
+					if (!response.ok) throw new Error("Error en la petición de vehiculos")
+						const data = await response.json()
+					console.log(data);
+					
+					setStore({vehicles: data.results})
+					
+				} catch (error) {
+					console.log(error.message);
+					
+					
+				}finally{
+					actions.setLoading(false);
+				}
+			},
+
+			getFavs: ()=>{
+				console.log("favoritos");
+				
+			},
+
+
+
+			getChar: async (id) =>{
+				const actions = getActions();
+				actions.setLoading(true);
+				try {
+					const response = await fetch(`https://www.swapi.tech/api/characters/${id}`)
+					if (!response.ok) throw new Error("Error en la petición del personaje")
+						const data = await response.json()
+					console.log(data);
+					
+					setStore({character: data.results})
+					
+				} catch (error) {
+					console.log(error.message);
+					
+					
+				}finally{
+					actions.setLoading(false);
+				}
+			},
+
+
+			getPlanet: async (id) =>{
+				const actions = getActions();
+				actions.setLoading(true);
+				try {
+					const response = await fetch(`https://www.swapi.tech/api/planets/${id}`)
+					if (!response.ok) throw new Error("Error en la petición del planeta")
+						const data = await response.json()
+					console.log(data);
+					
+					setStore({planet: data.results})
+					
+				} catch (error) {
+					console.log(error.message);
+					
+					
+				}finally{
+					actions.setLoading(false);
+				}
+			},
+
+			getVehicle: async (id) =>{
+				const actions = getActions();
+				actions.setLoading(true);
+				try {
+					const response = await fetch(`https://www.swapi.tech/api/vehicles/${id}`)
+					if (!response.ok) throw new Error("Error en la petición del vehiculo")
+						const data = await response.json()
+					console.log(data);
+					
+					setStore({vehicle: data.results})
+					
+				} catch (error) {
+					console.log(error.message);
+					
+					
+				}finally{
+					actions.setLoading(false);
+				}
+			},
 		}
 	};
 };
