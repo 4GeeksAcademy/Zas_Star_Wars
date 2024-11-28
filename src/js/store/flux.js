@@ -6,9 +6,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				vehicles: [],
 				favorites:[],
 
-				character:[],
-				planet:[],
-				vehicle:[],
+				character:{},
+				planet:{},
+				vehicle:{},
 
 				loading: false,
 
@@ -18,6 +18,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			
 		},
 		actions: {
+
+			
 
 			setLoading: (isLoading)=>{
 				setStore({ loading: isLoading})
@@ -84,10 +86,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			getFavs: ()=>{
-				console.log("favoritos");
-				
-			},
+		
 
 
 
@@ -95,12 +94,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const actions = getActions();
 				actions.setLoading(true);
 				try {
-					const response = await fetch(`https://www.swapi.tech/api/characters/${id}`)
+					const response = await fetch(`https://www.swapi.tech/api/people/${id}`)
 					if (!response.ok) throw new Error("Error en la petición del personaje")
 						const data = await response.json()
-					console.log(data);
+					console.log(data.result);
 					
-					setStore({character: data.results})
+					setStore({character: data.result})
+					
 					
 				} catch (error) {
 					console.log(error.message);
@@ -121,7 +121,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 						const data = await response.json()
 					console.log(data);
 					
-					setStore({planet: data.results})
+					setStore({planet: data.result})
+					
+					
+					
+					
 					
 				} catch (error) {
 					console.log(error.message);
@@ -141,7 +145,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						const data = await response.json()
 					console.log(data);
 					
-					setStore({vehicle: data.results})
+					setStore({vehicle: data.result})
+					console.log(data.result);
 					
 				} catch (error) {
 					console.log(error.message);

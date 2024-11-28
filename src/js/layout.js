@@ -11,15 +11,18 @@ import Planets from "./views/planets";
 import Vehicles from "./views/vehicles";
 import Favorites from "./views/favorites";
 import videoStars from "../js/component/vid/stars.mp4";
+import CharInfo from "./views/charInfo";
+import VehicleInfo from "./views/VehicleInfo.jsx";
+import PlanetInfo from "./views/PlanetInfo.jsx";
+import SwText from "./views/swtext.jsx";
 
 import injectContext, { Context } from "./store/appContext";
 
 const Layout = () => {
-  const { store, actions } = useContext(Context)
+  const { store, actions } = useContext(Context);
   return (
     <div>
       <BrowserRouter basename="">
-     
         <div className="container vid">
           <video
             loop
@@ -27,10 +30,10 @@ const Layout = () => {
             autoPlay
             src={videoStars}
             type="video/mp4"
-			      className="video-background"
+            className="video-background"
           ></video>
         </div>
-        <Headerlogo/>
+        <Headerlogo />
         <Navbar />
         {store.loading && <Loader />}
         <Routes>
@@ -38,8 +41,15 @@ const Layout = () => {
           <Route path="/characters" element={<Characters />} />
           <Route path="/planets" element={<Planets />} />
           <Route path="/vehicles" element={<Vehicles />} />
-		      <Route path="/favorites" element={<Favorites />} />
-          <Route path="*" element={<h1 className="text-danger text-center">Not found!</h1>} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/characters/:uid" element={<CharInfo />} />
+          <Route path="/planets/:uid" element={<PlanetInfo />} />
+          <Route path="/vehicles/:uid" element={<VehicleInfo />} />
+          <Route path="/swtext" element={<SwText />} />
+          <Route
+            path="*"
+            element={<h1 className="text-danger text-center">Not found!</h1>}
+          />
         </Routes>
         <Footer />
       </BrowserRouter>
