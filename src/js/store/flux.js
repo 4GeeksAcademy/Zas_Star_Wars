@@ -155,7 +155,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}finally{
 					actions.setLoading(false);
 				}
-			},
+			}
+
+			
 		}
 	};
 };

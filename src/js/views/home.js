@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router";
 import death_star from "../../img/death_star.png"
 import 'animate.css';
+
+
 import { Link } from "react-router-dom";
-
-
 
 
 export const Home = () => {
