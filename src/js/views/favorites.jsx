@@ -39,7 +39,7 @@ const Favorites = () => {
                         item = store.vehicles.find((vehicle) => vehicle.uid === favorite.uid);
                     }
 
-                    // Renderizar una tarjeta si el elemento existe
+                    
                     return (
                         item && (
                             <Card

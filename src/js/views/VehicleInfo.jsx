@@ -16,11 +16,12 @@ const VehicleInfo = () => {
     const { vehicle } = store;
 
     return(
-        <div className="container col-12 col-md-6 jumbo animate__animated animate__zoomIn d-flex">
+        <div className="container col-12 flex-wrap col-md-8 jumbo animate__animated animate__zoomIn d-flex">
             <img
                 src={`https://starwars-visualguide.com/assets/img/vehicles/${uid}.jpg`}
                 alt={"STAR WARS PLANET"}
                 onError={(e) => (e.target.src = "https://via.placeholder.com/400")}
+                className="imgInfo"
             />
             <div className="info m-5 ">
 

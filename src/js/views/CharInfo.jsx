@@ -22,7 +22,7 @@ const CharInfo = () => {
 
 
     return (
-        <div className="container col-12 col-md-6 jumbo animate__animated animate__zoomIn d-flex">
+        <div className="container col-12 flex-wrap col-md-8 jumbo animate__animated animate__zoomIn d-flex">
             <img className="imgjumbo" src={`https://starwars-visualguide.com/assets/img/characters/${uid}.jpg`}
                 alt="STAR WARS CHARACTER"
                 onError={(e) => (e.target.src = "https://via.placeholder.com/400")} />

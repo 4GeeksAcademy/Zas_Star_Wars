@@ -13,7 +13,7 @@ const PlanetInfo = () => {
     const { planet } = store;
 
     return (
-        <div className="container col-12 col-md-6 jumbo animate__animated animate__zoomIn d-flex">
+        <div className="container d-flex col-12 col-md-8 flex-wrap jumbo animate__animated animate__zoomIn ">
             <img
                 src={`https://starwars-visualguide.com/assets/img/planets/${uid}.jpg`}
                 alt={"STAR WARS PLANET"}
