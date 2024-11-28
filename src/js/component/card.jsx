@@ -67,6 +67,7 @@ const card = ({ name, uid, category, detailsUrl, onToggleFavorite }) => {
                 className="card-img-top cardimg"
                 alt={`${name}`}
                 onError={(e) => e.target.src = `https://starwars-visualguide.com/assets/img/planets/11.jpg`}
+                onClick={handleDetails}
             />
             <div className="card-body ">
                 <h6 className="card-title">{name}</h6>
