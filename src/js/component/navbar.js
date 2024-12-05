@@ -9,11 +9,11 @@ export const Navbar = () => {
     <div className="d-flex justify-content-center">
     <nav className="navbar navbar-expand ">
       
-      <button class="navbar-toggler text-warning" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span> 
+      <button className="navbar-toggler text-warning" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span> 
     </button>
       <div className="text-center my-4 animate__animated animate__zoomIn collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <NavLink
           to="/characters"
           className={({ isActive }) =>

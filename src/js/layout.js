@@ -11,7 +11,7 @@ import Planets from "./views/planets";
 import Vehicles from "./views/vehicles";
 import Favorites from "./views/favorites";
 import videoStars from "../js/component/vid/stars.mp4";
-import CharInfo from "./views/charInfo";
+import CharInfo from "./views/charInfo.jsx";
 import VehicleInfo from "./views/VehicleInfo.jsx";
 import PlanetInfo from "./views/PlanetInfo.jsx";
 import SwText from "./views/swtext.jsx";
